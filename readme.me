@@ -1,4 +1,67 @@
-Setup:
-1. Create the database as the code can not connect to the database
+Item catalog project
+--------------------
 
-Get your own client_secrets.json and store in app root.
+1. Why doing this project?
+The item catalog was completed as part of my Fullstack Webdeveloper Nanodegree.
+
+2. What can it be used for?
+This project initializes database table to store categories and for each categories
+0-n items. Items can be created edited or deleted if the user logs in to the application.
+
+3. Requirements
+    3.1 Python 3.x to run the program.
+
+    3.2 Postgres database v9 or above
+    The program does not use SQLITE but postgres. In order to use it a postgres
+    DB needs
+    to be available.
+
+    3.4 Flask 0.9 or above
+
+    3.5 SQLAlchemy 1.0.12 or above
+
+    3.6 Google account with Google+ Client Secrets(client_secrets.json)
+
+    3.7 Google Chrome current version
+
+    3.7 Skill requirements to setup and run the program
+        1. Ability to run a python program in IDE or from the Shell
+        2. Ability to create a database in postgres and define  user for the DB.
+        3. Ability to create user and assign password to the user.
+        4. Ability to insert data in the DB via SQL commands.
+        5. Ability to obtain client secrets from google.
+
+4. Setup instructions
+    4.1 Install non standard python modules Flask and SQLAlchemy if
+    not already available. Clone my github catalog project to your local drive.
+
+    4.2 Database preparation
+        4.2.1 Create a database with the name 'catalog' in the Postgres DB. Create the user
+        'vagrant' with the password 'vagrant' and provide user 'vagrant' read/write right
+        on DB 'catalog' incl. the creation of tables.
+
+        4.2.2 The connection string to the database needs to be updated. The IP address
+        of your DB needs to be updated in
+            1. Line 115 of cat_db_setup.py.
+            2. line 21 of catalog.py
+
+    4.3 run cat_db_setup.py
+
+    4.4 Populate the t_category with data. Minimum of two categories are advisable.
+
+    4.5 Get your client_secrets.json from Google.
+    IMPORTANT: I do not want to put my own client_secrets on GitHub. You need to get your own
+    or contact me.
+    Be aware that for security reasons the client_secrets file is located on the same folder
+    level as the catalog main directory. You see that the path to the file is the main
+    catalog.py file is '../client_secrets.json'
+
+    4.6 run catalog.py to start the app.
+
+    4.7 navigate to http://localhost:5000/catalog to start the app.
+
+5. Restriction
+    5.1 The styling could need some polish.
+
+    5.2 Only google is supported right now. As I am in China I will add wechat login
+    in the future.
