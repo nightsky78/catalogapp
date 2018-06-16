@@ -4,19 +4,47 @@
 </head>
 <body>
     <div class="container">
-        <section class="header">
-            <div class="title">Catalog App</div>
-            <div class="title"><a href="{{url_for('gdisconnect')}}">Logout Button</a></div>
-        </section>
-        <section class="catalog">Categories
-            <div class="categories">
-                {% for i in categories %}
-                <a href={{url_for('showItem', category=i.cat_id)}}>{{i.cat_name}}</a>
+        <header class="container box header">
+            <div class="text introleft"><a class="text" href="{{url_for('Catalog')}}">Catalog App</a></div>
+            {% if login == True %}
+                <div class="introright">
+                <form action="{{url_for('gdisconnect')}}">
+                    <input class="button"  type="submit" value="Logout">
+                </form>
+            {% else %}
+            <div class="text introright">
+                <form action="{{url_for('showLogin')}}">
+                    <input class="button"  type="submit" value="Login">
+                </form>
+            </div>
+            {% endif %}
+        </header>
+        <hr class = "bar glow">
+        <section class="container box content">
+            <div class="project">
+                <h2 class="text">Categories</h2>
+                <p>
+                    {% for i in categories %}
+                    <a class="text2" href={{url_for('showItem', category=i.cat_id)}}>{{i.cat_name}}</a><br>
+                    {% endfor %}
+                </p>
+            </div>
+            <div class="project">
+                {% if page == 'main' %}
+                <h2 class="text">Latest Items</h2>
+                {% elif page == 'item' %}
+                <h2 class="text">Items</h2>
+                {% endif %}
+                {% if login == True %}
+                    <p><a class="text2" href={{url_for('addItem')}}>Add Item</a></p>
+                {% endif %}
+                <p>
+                {% for i in items %}
+                    <a class="text2" href={{url_for('showItemDetails', category=i.t_category.cat_id,
+                            item=i.item_id)}}>{{i.item_name}}({{i.t_category.cat_name}})</a>
                 <br>
                 {% endfor %}
-            </div>
-            <div>
-                Recent items
+                </p>
             </div>
         </section>
     </div>

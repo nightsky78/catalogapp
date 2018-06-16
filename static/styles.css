@@ -1,0 +1,168 @@
+    @import url(https://fonts.googleapis.com/css?family=Roboto);
+      html, body {
+       background-color: black;
+      }
+
+      a {
+        color: inherit;
+      }
+      .container {
+        display: flex;
+        flex-wrap: wrap;
+        color: white;
+        margin: 10px;
+      }
+
+      .box {
+        width: 100%;
+      }
+
+      .descbox {
+        width: 300px; height: 100px
+      }
+
+      .standardbox {
+        width: 300px; height: 20px
+      }
+
+      .button {
+          background-color: #3c9fd6;
+          color: white;
+          font-size: 24px;
+          padding: 6px 18px;
+          order-radius: 12px;
+          display: block;
+          width: 50%;
+          margin: 0 auto;
+        }
+
+      .header {
+        max-height : 90px;
+      }
+
+      .footer {
+        height: 50px;
+        width: 100%;
+        text-align: center;
+      }
+
+      .introleft {
+        font-size: 40px;
+        line-height: 35px;
+        color: white;
+      }
+
+      .introright {
+        margin-top: 35px;
+        font-size: 40px;
+        line-height: 35px;
+      }
+
+      .text{
+        font-family: Calibri, Candara, Segoe, "Segoe UI", Optima, Arial, sans-serif;
+        font-style: normal;
+        font-variant: small-caps;
+        font-weight: 700;
+        text-decoration:none;
+      }
+
+      .text2 {
+        font-family: Calibri, Candara, Segoe, "Segoe UI", Optima, Arial, sans-serif;
+        font-style: normal;
+        font-variant: small-caps;
+        font-weight: 700;
+        text-decoration:none;
+        color: #3c9fd6;
+      }
+
+
+      .bar {
+        width : 100%;
+        background-color:#3c9fd6;
+        border: 0 none;
+      }
+
+      .glow {
+        color : #3c9fd6;
+        box-shadow: 0px 0px 5px 2px #3c9fd6;
+      }
+
+      .project {
+        margin: 0 auto;
+        text-align: left;
+        margin-left: 10px
+      }
+
+      .headline{
+        font-size: 20px;
+        line-height: 28px;
+      }
+
+
+      @media screen and (max-width: 449px) {
+        .box {
+            width : 100%;
+        }
+
+        .logoimg {
+            display: block;
+            margin: 10px;
+            margin-right: auto;
+            max-height: 100px;
+        }
+
+        .logo {
+            width : 100%;
+        }
+
+        .introright {
+            width : 100%;
+         }
+
+        .introleft {
+            width : 100%;
+         }
+
+        .project {
+            width : 100%;
+            overflow: auto;
+            text-align: left
+        }
+
+        .tile{
+            max-width: 83%;
+            max-height: 83%;
+            margin : 25px;
+            float: left;
+            clear: both;
+        }
+      }
+
+      @media screen and (min-width: 450px) {
+
+        .introright{
+            width : 45%;
+            line-height:120px;
+            text-align:right;
+        }
+
+        .introleft{
+            width : 45%;
+            line-height:120px;
+            text-align:left;
+        }
+
+
+        .project {
+            width : 47%
+        }
+      }
+
+      @media screen and (min-width: 700px)
+      {
+        .container {
+            width : 690px;
+            margin-left: auto;
+            margin-right: auto;
+        }
+      }

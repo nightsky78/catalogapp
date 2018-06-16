@@ -34,10 +34,12 @@ class Category(Base):
     cat_name = Column(String(200), nullable=False)
     cat_id = Column(Integer, primary_key=True)
 
-    def serialize(self):
+    @property
+    def serialize1(self):
         # Returns object data in easily serializable format
         return {
             'cat_name': self.cat_name,
+            'cat_id': self.cat_id
             }
 
 
@@ -68,6 +70,7 @@ class Item(Base):
         return {
             'name': self.item_name,
             'description': self.item_desc,
+            'create_date:': self.create_date,
             'id': self.item_id,
             }
 

@@ -1,0 +1,45 @@
+<html>
+    <head>
+        <link rel=stylesheet type="text/css" href="{{url_for('static', filename='styles.css')}}">
+    </head>
+
+    <body>
+        <div class="container">
+            <header class="container box header">
+                <div class="text introleft"><a class="text" href="{{url_for('Catalog')}}">Catalog App</a></div>
+                {% if login == True %}
+                    <div class="introright">
+                    <form action="{{url_for('gdisconnect')}}">
+                        <input class="button"  type="submit" value="Logout">
+                    </form>
+                {% else %}
+                <div class="text introright">
+                    <form action="{{url_for('showLogin')}}">
+                        <input class="button"  type="submit" value="Login">
+                    </form>
+                </div>
+                {% endif %}
+            </header>
+            <hr class = "bar glow">
+
+        <section class="container box content"">
+            <div class="box">
+                <h2 class="box text"> {{items.item_name}} in {{categories.cat_name}} </h2>
+            </div>
+            <div class="box text2">
+                {{items.item_desc}}
+            </div>
+            {% if login == True %}
+            <p>
+                <div class="project">
+                    <a class="text2" href="{{url_for('editItem', category=categories.cat_id, item=items.item_id)}}">Edit</a>
+                </div>
+                <div class="project">
+                    <a class="text2" href="{{url_for('deleteItem', category=categories.cat_id, item=items.item_id)}}">Delete</a>
+                </div>
+            </p>
+            {% endif %}
+        </section>
+        </div>
+    </body>
+</html>

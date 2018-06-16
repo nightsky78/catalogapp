@@ -1,0 +1,42 @@
+<html>
+    <head>
+        <link rel=stylesheet type="text/css" href="{{url_for('static', filename='styles.css')}}">
+    </head>
+
+    <body>
+        <div class="container">
+            <header class="container box header">
+                <div class="text introleft"><a class="text" href="{{url_for('Catalog')}}">Catalog App</a></div>
+                {% if login == True %}
+                    <div class="introright button-wrapper">
+                    <form action="{{url_for('gdisconnect')}}">
+                        <input class="button"  type="submit" value="Logout">
+                    </form>
+                {% else %}
+                <div class="text introright">
+                    <form action="{{url_for('showLogin')}}">
+                        <input class="button"  type="submit" value="Login">
+                    </form>
+                </div>
+                {% endif %}
+            </header>
+            <hr class = "bar glow">
+            <section class="container box content">
+                <h2 class="box text">Add New Item</h2><br>
+                <form class="box" action="{{url_for('addItem')}}" method = 'POST'>
+                    <p class="text2">Name</p>
+                    <input class="standardbox" type='text' name='item_name'>
+                    <p class="text2">Desc</p>
+                    <textarea class="descbox" type="text" name="item_desc"></textarea>
+                    <p class="text2">Category</p>
+                    <select name="category">
+                        {% for i in categories %}
+                        <option value="{{i.cat_name}}">{{i.cat_name}}</option>
+                        {% endfor %}
+                    </select>
+                    <input type='submit' value='Add'>
+                </form>
+            </section>
+        </div>
+    </body>
+</html>
